@@ -9,7 +9,7 @@ import { AdmobfreeService } from '../services/admobfree.service';
 export class TabsPage {
 
   constructor(
-    public admobfree : AdmobfreeService
+    public admobFree : AdmobfreeService
   ) {}
 
 }

@@ -164,7 +164,9 @@ export class GlobalService {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',
-        handler: () => {}
+        handler: () => {
+          this.admobFree.rendomAdShow();
+        }
       }]
     });
     await actionSheet.present();
@@ -187,7 +189,7 @@ export class GlobalService {
           text: 'Delete',
           handler: () => {
             this.deletePdf(filepath, fileName, index);
-            this.admobFree.showInterstitialAds();
+            this.admobFree.rendomAdShow();
             console.log('Confirm Okay');
           }
         }
@@ -228,7 +230,7 @@ export class GlobalService {
   copyText(value){
     this.clipboard.copy(value);
     this.presentToast('Text Copied');
-    this.admobFree.showInterstitialAds();
+    this.admobFree.rendomAdShow();
   }
 
   // Toaster

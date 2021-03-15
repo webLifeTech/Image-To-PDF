@@ -29,7 +29,7 @@ export class AdmobfreeService {
   }
 
   showInterstitialAds() {
-    if(!this.isRewardAdsReady){
+    if(!this.isRewardAdsReady && !this.isIntAdsReady){
       this.isIntAdsReady = true;
       const interstitialConfig: AdMobFreeInterstitialConfig = {
         id: 'ca-app-pub-8376945539001469/4873740890',
@@ -45,7 +45,7 @@ export class AdmobfreeService {
     }else{
 
     }
-  }  
+  }
 
   showRewardVideo() {
     if(!this.isIntAdsReady){
@@ -62,6 +62,16 @@ export class AdmobfreeService {
           this.admobFree.rewardVideo.show();
         })
         .catch(e => console.log(e));
+    }
+  }
+
+  rendomAdShow(){
+    var reqCount = [1, 2, 3, 4, 5];
+    var findFive = reqCount[Math.floor(Math.random() * reqCount.length)];
+    console.log("findFive>>>>>>>>>>>>>>"+findFive);
+    if(findFive == 3){
+      console.log("Ads++++++++++++++++++++++++++");
+      this.showInterstitialAds();
     }
   }
 }

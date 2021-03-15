@@ -83,8 +83,8 @@
       </ion-col>
       <ion-col size="4" style="text-align: -webkit-center;">
           <ion-fab style="position: relative;">
-            <!-- [disabled]="!gs.iamgeArry.length" -->
-              <ion-fab-button  (click)="pdfName()" class="costum_bg footer_icon">
+            <!--  -->
+              <ion-fab-button [disabled]="!gs.iamgeArry.length" (click)="pdfName()" class="costum_bg footer_icon">
                   <ion-icon name="cloud-download-outline"></ion-icon>
               </ion-fab-button>
           </ion-fab>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lifetechs.imagetopdf" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.lifetechs.imagetopdf" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Image To PDF</name>
     <description>pdf maker,pdf,cam scanner,camscanner,new,new app,new camscanner,make pdf,image to pdf,image to pdf converter,document scanner,pdf reader,pdf creator,doc scanner,pdf scanner,bharat scanner,clear scan,pdf converter,scanner app to pdf,scanner,jpg to pdf,cam to pdf,pdf cam scanner,kaagaz scanner,camera to pdf scanner,scanner app,camera scanner,camera scanner,qr code reader,qr and barcode,barcode scanner,barcode,scan to pdf,qr code scanner</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
