@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalCtrl.dismiss()" color="white">
+          <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Image Rotation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- The reorder gesture is disabled by default, enable it to drag and drop items -->
+<ion-grid>
+  <ion-row>
+      <ion-col size="12">
+        <!-- (ionItemReorder)="doReorder($event)"  -->
+        <ion-reorder-group disabled="false">
+          <ion-reorder style="margin-bottom: 14px;" *ngFor="let item of gs.iamgeArry">
+            <img [src]="item" alt="" style="width: 100%;object-fit: cover;">
+            <ion-item>
+              <ion-fab style="position: relative;margin: auto;">
+                  <ion-fab-button size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                      <ion-icon name="hand-right-outline"></ion-icon>
+                  </ion-fab-button>
+              </ion-fab>
+            </ion-item>
+          </ion-reorder>
+        </ion-reorder-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,166 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="new-background-color">
+      <ion-title>Home</ion-title>
+      <!-- <ion-buttons slot="end">
+          <ion-button color="light">
+              <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-button>
+      </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;">
+      <div style="background-color: #ffffff;overflow: auto; height: calc(100vh - 114px);width: 130px;box-shadow: 0 1px 34px -20px #000000;">
+          <ion-grid class="ion-text-center">
+              <ion-row>
+                  <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center">
+                          <ion-fab-button class="costum_bg" (click)="gs.goPdfCreate('')">
+                              <ion-icon name="camera-outline"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">Add Camera</p>
+                  </ion-col>
+                  <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center" (click)="gs.goPdfCreate('PickGullery')">
+                          <ion-fab-button class="costum_bg">
+                              <ion-icon name="images-outline"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">Add Gallery</p>
+                  </ion-col>
+                  <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center" (click)="goQRorBarCode('Scan Your QR Coce')">
+                          <ion-fab-button class="costum_bg">
+                              <ion-icon name="qr-code-outline"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">QR-code</p>
+                  </ion-col>
+                  <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center" (click)="goQRorBarCode('Scan Your Barcode')">
+                          <ion-fab-button class="costum_bg">
+                              <ion-icon name="barcode-sharp"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">Bar-code</p>
+                  </ion-col>
+                    <!-- <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center" [routerLink]="['/tabs/document']">
+                          <ion-fab-button class="costum_bg">
+                              <ion-icon name="folder-outline"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">Document</p>
+                    </ion-col> -->
+                    <ion-col size="12" style="padding: 0px 0;">
+                        <ion-fab horizontal="center" (click)="gs.shareApp()">
+                            <ion-fab-button class="costum_bg">
+                                <ion-icon name="share-social-outline"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="margin-top: 65px;">Share App</p>
+                    </ion-col>
+                    <ion-col size="12" style="padding: 0px 0;">
+                        <ion-fab horizontal="center" (click)="gs.rateApp()">
+                            <ion-fab-button class="costum_bg">
+                                <ion-icon name="star-outline"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="margin-top: 65px;">Rate App</p>
+                    </ion-col>
+                    <ion-col size="12" style="padding: 0px 0;">
+                        <ion-fab horizontal="center" (click)="gs.rateApp()">
+                            <ion-fab-button class="costum_bg">
+                                <ion-icon name="timer-outline"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="margin-top: 65px;">Check Update</p>
+                    </ion-col>
+                  <!-- <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center" (click)="gs.presentModal()">
+                          <ion-fab-button class="costum_bg">
+                              <ion-icon name="grid-outline"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">For You</p>
+                  </ion-col> -->
+                  <!-- <ion-col size="12" style="padding: 0px 0;">
+                      <ion-fab horizontal="center" (click)="gs.presentModal()">
+                          <ion-fab-button class="costum_bg">
+                              <ion-icon name="settings-outline"></ion-icon>
+                          </ion-fab-button>
+                      </ion-fab>
+                      <p style="margin-top: 65px;">Settings</p>
+                  </ion-col> -->
+              </ion-row>
+          </ion-grid>
+      </div>
+      <div style="width: calc(100vw - 130px);overflow: auto;height: calc(100vh - 114px);position: relative;">
+          <ion-grid *ngIf="gs.allPdfData.length">
+              <ion-list>
+                  <ion-item lines="none">
+                      <ion-icon name="time-outline" color="primary" slot="start"></ion-icon>
+                      <ion-label>Most Recent</ion-label>
+                  </ion-item>
+              </ion-list>
+          </ion-grid>
+          <div *ngIf="!gs.allPdfData.length" class="ion-padding ion-text-center">
+              <!-- <img src="assets/256x256bb.jpg" alt="" style="border-radius: 24px;" /> -->
+                <p>Have not PDF</p>
+                <div style="position: absolute;bottom: 0;left: 50%;transform: translate(-50%, -20%);">
+                    <ion-button  (click)="gs.goPdfCreate('PickGullery')" class="costum_bg" shape="round" expand="block" style="height: 60px;">
+                        Make First PDF
+                    </ion-button>
+                </div>
+          </div>
+          <ion-grid *ngIf="gs.allPdfData.length">
+            <ion-row class="">
+                <ion-col size="12" *ngFor="let item of gs.allPdfData;let inx = index">
+                    <ng-container *ngIf="inx < 3">
+                        <ion-card style="max-width: 200px;margin: auto;text-align: center;background: #f7f7f7;" class="ion-no-margin">
+                          <ion-card-header color="light">
+                              <ion-card-title style="font-size: 14px;">{{item.name}}</ion-card-title>
+                          </ion-card-header>
+                          <img src="assets/logo-pdf-png-logo.png" (click)="gs.viewPdf(item.nativeURL)" style="height: 145px;"/>
+                          <ion-card-header class="ion-no-padding" color="light">
+                            <ion-row class="ion-text-center">
+                              <!-- <ion-col size="4" style="text-align: -webkit-center;">
+                                  <ion-fab style="position: relative;">
+                                      <ion-fab-button size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                                          <ion-checkbox color="light"></ion-checkbox>
+                                      </ion-fab-button>
+                                  </ion-fab>
+                              </ion-col> -->
+                              <ion-col size="4" style="text-align: -webkit-center;">
+                                <ion-fab style="position: relative;">
+                                  <!-- (click)="deleteAll(index)" -->
+                                  <ion-fab-button size="small" (click)="gs.deleteConfirm(item.nativeURL,item.name,inx)" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                  </ion-fab-button>
+                                </ion-fab>
+                              </ion-col>
+                              <ion-col size="4" style="text-align: -webkit-center;"></ion-col>
+                              <ion-col size="4" style="text-align: -webkit-center;">
+                                  <ion-fab style="position: relative;">
+                                      <ion-fab-button (click)="gs.viewActionSheet(item.nativeURL,item.name,inx)" size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                                          <ion-icon name="ellipsis-horizontal"></ion-icon>
+                                      </ion-fab-button>
+                                  </ion-fab>
+                              </ion-col>
+                          </ion-row>
+                          </ion-card-header>
+                        </ion-card>
+                    </ng-container>
+                </ion-col>
+            </ion-row>
+            <div class="ion-text-center">
+                <ion-button routerLink="/tabs/document" class="costum_bg" shape="round">
+                    See all
+                </ion-button>
+            </div>
+        </ion-grid>
+      </div>
+  </div>
+</ion-content>

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button (click)="modalCtrl.dismiss()" color="light">
+              <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>Create PDF</ion-title>
+      <!-- <ion-buttons slot="end">
+          <ion-button (click)="createPDF()" fill="clear" color="light">
+              <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+              Save
+          </ion-button>
+      </ion-buttons> -->
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid *ngIf="gs.iamgeArry.length">
+      <ion-row style="padding-bottom: 26px;">
+          <ion-col size="6" *ngFor="let img of gs.iamgeArry;let index = index">
+              <ion-card class="ion-no-margin">
+                  <img [src]="img" style="height: 180px;width: 100%;object-fit: cover;" />
+                  <ion-card-content class="ion-no-padding" style="height: 54px;">
+                      <ion-row class="ion-text-center">
+                          <ion-col size="4" style="text-align: -webkit-center;">
+                              <ion-fab style="position: relative;">
+                                  <ion-fab-button (click)="changePhoto(index)" size="small" color="light" fill="clear" style="margin: 0;--box-shadow: none;">
+                                      <ion-icon name="sync-outline" color="secondary"></ion-icon>
+                                  </ion-fab-button>
+                              </ion-fab>
+                          </ion-col>
+                          <ion-col size="4" style="text-align: -webkit-center;">
+                              <!-- <ion-fab style="position: relative;">
+                                  <ion-fab-button (click)="cropImage(img,index)" size="small" color="light" fill="clear" style="margin: 0;--box-shadow: none;">
+                                      <ion-icon name="crop-outline"></ion-icon>
+                                  </ion-fab-button>
+                              </ion-fab> -->
+                          </ion-col>
+                          <ion-col size="4" style="text-align: -webkit-center;">
+                              <ion-fab style="position: relative;">
+                                  <ion-fab-button (click)="deleteAll(index)" size="small" color="light" fill="clear" style="margin: 0;--box-shadow: none;">
+                                      <ion-icon name="trash-outline" color="secondary"></ion-icon>
+                                  </ion-fab-button>
+                              </ion-fab>
+                          </ion-col>
+                      </ion-row>
+                  </ion-card-content>
+              </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="ion-no-border" style="height: 60px;">
+  <ion-row class="ion-text-center">
+      <ion-col size="4" style="text-align: -webkit-center;">
+          <ion-fab style="position: relative;">
+              <ion-fab-button (click)="gs.pickToCamera()" class="costum_bg footer_icon">
+                  <ion-icon name="camera-outline"></ion-icon>
+              </ion-fab-button>
+          </ion-fab>
+          <!-- <ion-fab style="position: relative;">
+              <ion-fab-button  class="costum_bg footer_icon"><ion-icon name="add"></ion-icon></ion-fab-button>
+              <ion-fab-list style="left: 50%;transform: translate(-50%, 21%);" side="top">
+                  <ion-fab-button class="costum_bg">
+                      <ion-icon color="light" name="camera-outline"></ion-icon>
+                    </ion-fab-button>
+                  <ion-fab-button class="costum_bg">
+                      <ion-icon color="light" name="images-outline"></ion-icon>
+                    </ion-fab-button>
+              </ion-fab-list>
+          </ion-fab> -->
+          <!-- <p class="ion-no-margin footer_p">Add Image</p> -->
+          <p class="ion-no-margin footer_p">Camera</p>
+      </ion-col>
+      <ion-col size="4" style="text-align: -webkit-center;">
+          <ion-fab style="position: relative;">
+              <ion-fab-button (click)="gs.goPickGullery()" class="costum_bg footer_icon">
+                  <ion-icon name="images-outline"></ion-icon>
+              </ion-fab-button>
+          </ion-fab>
+          <p class="ion-no-margin footer_p">Gallary</p>
+      </ion-col>
+      <ion-col size="4" style="text-align: -webkit-center;">
+          <ion-fab style="position: relative;">
+            <!-- [disabled]="!gs.iamgeArry.length" -->
+              <ion-fab-button  (click)="pdfName()" class="costum_bg footer_icon">
+                  <ion-icon name="cloud-download-outline"></ion-icon>
+              </ion-fab-button>
+          </ion-fab>
+          <p class="ion-no-margin footer_p">Save PDF</p>
+          <!-- <ion-fab style="position: relative;">
+              <ion-fab-button (click)="rotationModal()" class="costum_bg footer_icon">
+                  <ion-icon name="swap-vertical-outline"></ion-icon>
+              </ion-fab-button>
+          </ion-fab>
+          <p class="ion-no-margin footer_p">Rotation</p> -->
+      </ion-col>
+  </ion-row>
+  <!-- </ion-toolbar> -->
+</ion-footer>

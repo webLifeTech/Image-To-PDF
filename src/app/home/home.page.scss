@@ -1,0 +1,49 @@
+.custom_item {
+    background: #fbc9a9;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 33px;
+    margin: auto;
+    box-shadow: 0 0 24px -14px;
+}
+
+.custom_item {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 33px;
+    margin: auto;
+    box-shadow: 0 0 24px -14px;
+}
+
+.item1 {
+    // background: #fbc9a9;
+    background: linear-gradient(45deg, #0007fe, #01d9f6)!important;
+    color: white;
+}
+
+ion-button button {
+    padding: 0!important;
+}
+
+.item2 {
+    background: #fff28e;
+    margin-top: 8px;
+}
+
+.item3 {
+    background: #cee88d;
+    margin-top: 8px;
+}
+
+.item4 {
+    background: #bfddf9;
+    margin-top: 8px;
+}

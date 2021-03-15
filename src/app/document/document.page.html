@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My PDF</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!gs.allPdfData.length" class="ion-padding ion-text-center">
+    <!-- <img src="assets/256x256bb.jpg" alt="" style="border-radius: 24px;" /> -->
+      <p>Have not PDF</p>
+      <div style="position: absolute;bottom: 0;left: 50%;transform: translate(-50%, -20%);">
+          <ion-button  (click)="gs.goPdfCreate('PickGullery')" class="costum_bg" shape="round" expand="block" style="height: 60px;">
+              Make First PDF
+          </ion-button>
+      </div>
+</div>
+  <ion-grid *ngIf="gs.allPdfData.length">
+    <ion-row class="">
+        <ion-col size="6" *ngFor="let item of gs.allPdfData;let inx = index">
+          <ion-card style="max-width: 200px;margin: auto;text-align: center;background: #f7f7f7;" class="ion-no-margin">
+            <ion-card-header color="light">
+                <ion-card-title style="font-size: 14px;">{{item.name}}</ion-card-title>
+            </ion-card-header>
+            <img src="assets/logo-pdf-png-logo.png" (click)="gs.viewPdf(item.nativeURL)" style="height: 145px;"/>
+            <ion-card-header class="ion-no-padding" color="light">
+              <ion-row class="ion-text-center">
+                <!-- <ion-col size="4" style="text-align: -webkit-center;">
+                    <ion-fab style="position: relative;">
+                        <ion-fab-button size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                            <ion-checkbox color="light"></ion-checkbox>
+                        </ion-fab-button>
+                    </ion-fab>
+                </ion-col> -->
+                <ion-col size="4" style="text-align: -webkit-center;">
+                  <ion-fab style="position: relative;">
+                    <!-- (click)="deleteAll(index)" -->
+                    <ion-fab-button size="small" (click)="gs.deleteConfirm(item.nativeURL,item.name,inx)" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </ion-fab-button>
+                  </ion-fab>
+                </ion-col>
+                <ion-col size="4" style="text-align: -webkit-center;"></ion-col>
+                <ion-col size="4" style="text-align: -webkit-center;">
+                    <ion-fab style="position: relative;">
+                        <ion-fab-button (click)="gs.viewActionSheet(item.nativeURL,item.name,inx)" size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                            <ion-icon name="ellipsis-horizontal"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                </ion-col>
+            </ion-row>
+            </ion-card-header>
+          </ion-card>
+            <!-- <ion-card class="ion-no-margin">
+                <img src="assets/logo-pdf-png-logo.png"/>
+                <ion-card-content class="ion-no-padding" style="height: 54px;">
+                    <ion-row class="ion-text-center">
+                        <ion-col size="4" style="text-align: -webkit-center;">
+                            <ion-fab style="position: relative;">
+                                <ion-fab-button size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                                    <ion-checkbox color="light"></ion-checkbox>
+                                </ion-fab-button>
+                            </ion-fab>
+                        </ion-col>
+                        <ion-col size="4" style="text-align: -webkit-center;">
+                          <ion-fab style="position: relative;">
+                            <ion-fab-button (click)="deleteAll(index)" size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                              <ion-icon name="trash-outline"></ion-icon>
+                            </ion-fab-button>
+                          </ion-fab>
+                        </ion-col>
+                        <ion-col size="4" style="text-align: -webkit-center;">
+                            <ion-fab style="position: relative;">
+                                <ion-fab-button (click)="gs.toGallary()" size="small" class="costum_bg" style="margin: 0;--box-shadow: none;">
+                                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+                                </ion-fab-button>
+                            </ion-fab>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card> -->
+        </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>
