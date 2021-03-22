@@ -14,8 +14,7 @@
 <ion-grid>
   <ion-row>
       <ion-col size="12">
-        <!-- (ionItemReorder)="doReorder($event)"  -->
-        <ion-reorder-group disabled="false">
+        <ion-reorder-group disabled="false" (ionItemReorder)="doReorder($event)">
           <ion-reorder style="margin-bottom: 14px;" *ngFor="let item of gs.iamgeArry">
             <img [src]="item" alt="" style="width: 100%;object-fit: cover;">
             <ion-item>
