@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GlobalService } from 'src/app/services/global.service';
 import { IonReorderGroup, ModalController } from '@ionic/angular';
-import { ItemReorderEventDetail } from '@ionic/core';
 
 @Component({
   selector: 'app-rotation',
@@ -19,7 +18,7 @@ export class RotationPage implements OnInit {
   ngOnInit() {
   }
 
-  doReorder(ev: CustomEvent<ItemReorderEventDetail>) {
+  doReorder(ev) {
     console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
     this.position = ev.detail.to
     ev.detail.complete();
