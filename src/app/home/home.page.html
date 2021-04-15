@@ -14,7 +14,7 @@
       <div style="background-color: #ffffff;overflow: auto; height: calc(100vh - 114px);width: 130px;box-shadow: 0 1px 34px -20px #000000;">
           <ion-grid class="ion-text-center">
               <ion-row>
-                  <ion-col size="12" style="padding: 0px 0;">
+                  <!-- <ion-col size="12" style="padding: 0px 0;">
                       <ion-fab horizontal="center">
                           <ion-fab-button class="costum_bg" (click)="gs.goPdfCreate('')">
                               <ion-icon name="camera-outline"></ion-icon>
@@ -29,7 +29,7 @@
                           </ion-fab-button>
                       </ion-fab>
                       <p style="margin-top: 65px;">Add Gallery</p>
-                  </ion-col>
+                  </ion-col> -->
                   <ion-col size="12" style="padding: 0px 0;">
                       <ion-fab horizontal="center" (click)="goQRorBarCode('Scan Your QR Coce')">
                           <ion-fab-button class="costum_bg">
@@ -46,14 +46,6 @@
                       </ion-fab>
                       <p style="margin-top: 65px;">Bar-code</p>
                   </ion-col>
-                    <!-- <ion-col size="12" style="padding: 0px 0;">
-                      <ion-fab horizontal="center" [routerLink]="['/tabs/document']">
-                          <ion-fab-button class="costum_bg">
-                              <ion-icon name="folder-outline"></ion-icon>
-                          </ion-fab-button>
-                      </ion-fab>
-                      <p style="margin-top: 65px;">Document</p>
-                    </ion-col> -->
                     <ion-col size="12" style="padding: 0px 0;">
                         <ion-fab horizontal="center" (click)="gs.shareApp()">
                             <ion-fab-button class="costum_bg">
@@ -135,7 +127,6 @@
                               </ion-col> -->
                               <ion-col size="4" style="text-align: -webkit-center;">
                                 <ion-fab style="position: relative;">
-                                  <!-- (click)="deleteAll(index)" -->
                                   <ion-fab-button size="small" (click)="gs.deleteConfirm(item.nativeURL,item.name,inx)" class="costum_bg" style="margin: 0;--box-shadow: none;">
                                     <ion-icon name="trash-outline"></ion-icon>
                                   </ion-fab-button>

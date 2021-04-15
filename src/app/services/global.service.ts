@@ -83,11 +83,10 @@ export class GlobalService {
   // After Make PDF
 
   // PDF Create
-  async goPdfCreate(value) {
+  async goPdfCreate() {
     const modal = await this.mc.create({
       component: PdfCreatePage,
       cssClass: 'my-custom-class',
-      componentProps:{isFor : value},
       swipeToClose: true,
       presentingElement: await this.mc.getTop() // Get the top-most ion-modal
     });
@@ -103,11 +102,9 @@ export class GlobalService {
 
   // PDF Delete
   deletePdf(filepath, fileName, index){
-    console.log("filepath>>>>>"+filepath);
-    console.log("fileName>>>>>"+fileName);
+    this.admobFree.rendomAdShow();
     let filePath = this.file.externalRootDirectory +'Image-To-PDF'
     this.file.removeFile(filePath , fileName).then((res)=>{
-      console.log("resres>>>>>>>>"+res);
       this.allPdfData.splice(index,1);
     },err =>{
       console.log("errerr>>>>>>>>"+JSON.parse(err));
@@ -116,8 +113,8 @@ export class GlobalService {
 
   // PDF Share
   pdfShare(filepath){
+    this.admobFree.rendomAdShow();
     this.socialSharing.share("", "", filepath).then((entries) => {
-      this.admobFree.showRewardVideo();
       console.log('success>>>>>>>>>>' + JSON.stringify(entries));
     }).catch((error) => {
       alert('error>>>>>>>>>>' + JSON.stringify(error));
@@ -164,9 +161,7 @@ export class GlobalService {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',
-        handler: () => {
-          this.admobFree.rendomAdShow();
-        }
+        handler: () => {}
       }]
     });
     await actionSheet.present();
@@ -211,7 +206,6 @@ export class GlobalService {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            // this.admobFree.showRewardVideo();
             console.log('Confirm Cancel: blah');
           }
         }, {

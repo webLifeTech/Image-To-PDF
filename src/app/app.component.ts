@@ -41,7 +41,7 @@ export class AppComponent {
       }, 200);
 
       setTimeout(() => {
-        this.admobFree.rendomAdShow();
+        this.admobFree.showInterstitialAds();
       }, 300);
       this.admobFree.adMobFreeBanner();
     });

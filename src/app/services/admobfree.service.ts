@@ -18,7 +18,8 @@ export class AdmobfreeService {
 
   adMobFreeBanner(){
     const bannerConfig: AdMobFreeBannerConfig = {
-      id: 'ca-app-pub-8376945539001469/3590796426',
+      // id: 'ca-app-pub-8376945539001469/3590796426',
+      id: '',
       isTesting: true,
       autoShow: true
     };
@@ -32,7 +33,8 @@ export class AdmobfreeService {
     if(!this.isRewardAdsReady && !this.isIntAdsReady){
       this.isIntAdsReady = true;
       const interstitialConfig: AdMobFreeInterstitialConfig = {
-        id: 'ca-app-pub-8376945539001469/4873740890',
+        // id: 'ca-app-pub-8376945539001469/4873740890',
+        id: '',
         isTesting: true,
         autoShow: true
       };
@@ -47,30 +49,28 @@ export class AdmobfreeService {
     }
   }
 
-  showRewardVideo() {
-    if(!this.isIntAdsReady){
-      this.isRewardAdsReady = true;
-      const rewardVideoConfig: AdMobFreeRewardVideoConfig = {
-        id: 'ca-app-pub-8376945539001469/1339381064',
-        isTesting: true,
-        autoShow: true
-      };
-      this.admobFree.rewardVideo.config(rewardVideoConfig);
-      this.admobFree.rewardVideo.prepare().then((res) => {
-        console.log("rewardVideoConfig>>>>>>>>>>>>>>", res);
-        this.isRewardAdsReady = false;
-          this.admobFree.rewardVideo.show();
-        })
-        .catch(e => console.log(e));
-    }
-  }
+  // showRewardVideo() {
+  //   if(!this.isIntAdsReady){
+  //     this.isRewardAdsReady = true;
+  //     const rewardVideoConfig: AdMobFreeRewardVideoConfig = {
+  //       id: 'ca-app-pub-8376945539001469/1339381064',
+  //       isTesting: true,
+  //       autoShow: true
+  //     };
+  //     this.admobFree.rewardVideo.config(rewardVideoConfig);
+  //     this.admobFree.rewardVideo.prepare().then((res) => {
+  //       console.log("rewardVideoConfig>>>>>>>>>>>>>>", res);
+  //       this.isRewardAdsReady = false;
+  //         this.admobFree.rewardVideo.show();
+  //       })
+  //       .catch(e => console.log(e));
+  //   }
+  // }
 
   rendomAdShow(){
-    var reqCount = [1, 2, 3, 4, 5];
+    var reqCount = [1, 2, 3, 4, 5, 6, 7];
     var findFive = reqCount[Math.floor(Math.random() * reqCount.length)];
-    console.log("findFive>>>>>>>>>>>>>>"+findFive);
-    if(findFive == 3){
-      console.log("Ads++++++++++++++++++++++++++");
+    if(findFive == 3 || findFive == 5){
       this.showInterstitialAds();
     }
   }
