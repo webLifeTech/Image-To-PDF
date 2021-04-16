@@ -52,16 +52,9 @@ export class GlobalService {
     }
     this.imagePicker.getPictures(options).then((results) => {
       for (var i = 0; i < results.length; i++) {
-        // this.iamgeArry.push((window as any).Ionic.WebView.convertFileSrc(results[i]))
         this.iamgeArry.push('data:image/jpeg;base64,' + results[i])
         console.log('Image URI:======== ' + results[i]);
       }
-      // if(this.iamgeArry.length){
-      //   this.goPdfCreate();
-      //   console.log("iamgeArry>>>>>>>>",this.iamgeArry);
-      // }else{
-      //   console.log("iamgeArry111111>>>>>>>>",this.iamgeArry);
-      // }
     }, (err) => { });
   }
 
@@ -84,6 +77,7 @@ export class GlobalService {
 
   // PDF Create
   async goPdfCreate() {
+    this.admobFree.rendomAdShow();
     const modal = await this.mc.create({
       component: PdfCreatePage,
       cssClass: 'my-custom-class',
@@ -140,7 +134,44 @@ export class GlobalService {
         //   cssClass: 'custom_color',
         //   text: 'Rename',
         //   icon: 'brush-outline',
-        //   handler: () => {}
+        //   handler: async ()  => {
+        //     const alert = await this.ac.create({
+        //       header: 'PDF Rename',
+        //       mode:'ios',
+        //       backdropDismiss:false,
+        //       inputs: [
+        //         {
+        //           name: 'value',
+        //           value: fileName,
+        //           type: 'text',
+        //           placeholder: 'Enter PDF Name'
+        //         },
+        //       ],
+        //       buttons: [
+        //         {
+        //           text: 'Cancel',
+        //           role: 'cancel',
+        //           cssClass: 'secondary',
+        //           handler: () => {
+        //             console.log('Confirm Cancel: blah');
+        //           }
+        //         }, {
+        //           text: 'Okay',
+        //           handler: (res) => {
+        //             this.file.writeFile(this.file.externalDataDirectory, fileName,'', { replace: true })
+        //             .then(fileEntry => {
+        //               console.log("fileEntry>>>>>>>>>>>>>>>>>>"+fileEntry);
+        //               fileEntry.moveDir(this.file.externalDataDirectory, String(res.value)+'.pdf','', { replace: true })
+        //               .then(result => {
+        //                 console.log("result>>>>>>>>>>>>>>>>>>"+result);
+        //               })
+        //             })
+        //           }
+        //         }
+        //       ]
+        //     });
+        //     await alert.present();
+        //   }
         // },
         {
           cssClass: 'custom_color',

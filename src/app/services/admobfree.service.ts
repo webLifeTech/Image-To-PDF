@@ -18,8 +18,7 @@ export class AdmobfreeService {
 
   adMobFreeBanner(){
     const bannerConfig: AdMobFreeBannerConfig = {
-      // id: 'ca-app-pub-8376945539001469/3590796426',
-      id: '',
+      id: 'ca-app-pub-8376945539001469/3590796426',
       isTesting: true,
       autoShow: true
     };
@@ -30,11 +29,10 @@ export class AdmobfreeService {
   }
 
   showInterstitialAds() {
-    if(!this.isRewardAdsReady && !this.isIntAdsReady){
+    if(!this.isIntAdsReady){
       this.isIntAdsReady = true;
       const interstitialConfig: AdMobFreeInterstitialConfig = {
-        // id: 'ca-app-pub-8376945539001469/4873740890',
-        id: '',
+        id: 'ca-app-pub-8376945539001469/4873740890',
         isTesting: true,
         autoShow: true
       };

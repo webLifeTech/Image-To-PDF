@@ -32,12 +32,7 @@ export class PdfCreatePage implements OnInit {
     public navparams: NavParams,
   ) {
     console.log("isFor>>>>>>>>>>"+navparams.data.isFor);
-    
-    if(navparams.data.isFor == 'PickGullery'){
-      this.gs.goPickGullery();
-    }else{
-      this.gs.pickToCamera();
-    }
+    // this.gs.goPickGullery();
   }
 
   ngOnInit() {
@@ -95,6 +90,7 @@ export class PdfCreatePage implements OnInit {
 
   // Create PDF
   createPDF() {
+    this.admobFree.showInterstitialAds();
     this.gs.presentLoading('Saving...');
     pdfmake.vfs = pdfFonts.pdfMake.vfs;
     let colams = [];
@@ -132,7 +128,6 @@ export class PdfCreatePage implements OnInit {
             this.modalCtrl.dismiss();
             this.gs.iamgeArry = [];
             this.gs.presentToast("PDF Saved Successfully!");
-            this.admobFree.showInterstitialAds();
           }, 1000);
           console.log('download complete :' + entry.toURL());
         }, (error) => {

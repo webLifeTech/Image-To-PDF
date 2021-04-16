@@ -32,6 +32,7 @@
     "@ionic-native/social-sharing": "^5.31.1",
     "@ionic/angular": "^5.5.2",
     "cordova-admob-sdk": "0.24.1",
+    "cordova-android": "9.1.0",
     "cordova-plugin-admob-free": "0.27.0",
     "cordova-promise-polyfill": "0.0.2",
     "ionic-angular": "3.9.10",

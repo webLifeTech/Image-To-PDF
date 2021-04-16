@@ -37,6 +37,7 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
   goQRorBarCode(label){
+    this.admobFree.rendomAdShow();
     this.qrCodePage();
     setTimeout(() => {
       let options : BarcodeScannerOptions = {
