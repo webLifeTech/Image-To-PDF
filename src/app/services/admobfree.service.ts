@@ -20,7 +20,8 @@ export class AdmobfreeService {
     const bannerConfig: AdMobFreeBannerConfig = {
       id: 'ca-app-pub-8376945539001469/3590796426',
       isTesting: true,
-      autoShow: true
+      autoShow: true,
+      bannerAtTop: false,
     };
     this.admobFree.banner.config(bannerConfig);
     this.admobFree.banner.prepare().then((res) => {
@@ -39,11 +40,12 @@ export class AdmobfreeService {
       this.admobFree.interstitial.config(interstitialConfig);
       this.admobFree.interstitial.prepare().then((res) => {
         console.log("interstitialConfig>>>>>>>>>>>>>>", res);
+        this.admobFree.interstitial.show();
+        this.isIntAdsReady = false;
+        }).catch(e => {
           this.isIntAdsReady = false;
-          this.admobFree.interstitial.show();
-        }).catch(e => console.log(e));
-    }else{
-
+          console.log(e)
+        });
     }
   }
 
@@ -66,9 +68,9 @@ export class AdmobfreeService {
   // }
 
   rendomAdShow(){
-    var reqCount = [1, 2, 3, 4, 5, 6, 7];
+    var reqCount = [1, 2, 3, 4, 5, 6];
     var findFive = reqCount[Math.floor(Math.random() * reqCount.length)];
-    if(findFive == 3 || findFive == 5){
+    if(findFive == 2 || findFive == 5){
       this.showInterstitialAds();
     }
   }

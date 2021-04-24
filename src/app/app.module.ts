@@ -13,6 +13,7 @@ import { Market } from '@ionic-native/market/ngx';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
+import { AppVersion } from '@ionic-native/app-version/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { AppComponent } from './app.component';
     Market,
     BarcodeScanner,
     Clipboard,
+    AppVersion,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
